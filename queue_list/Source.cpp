@@ -23,4 +23,12 @@ int main()
 
 	q.display();
 
+	q.clear();
+
+	q.dequeue();
+
+	q.size();
+
+	std::cout << q.isEmty();
+
 }

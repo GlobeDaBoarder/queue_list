@@ -6,10 +6,11 @@ class QueueList
 {
 private:
 	ListNode* m_front_ptr;
-	ListNode*m_back_ptr;
+	ListNode* m_back_ptr;
 
 private:
 	void OutOfBoundErr() const;
+	void emptyMessage() const;
 
 public:
 	QueueList();

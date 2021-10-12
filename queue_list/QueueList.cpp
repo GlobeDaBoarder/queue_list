@@ -8,6 +8,11 @@ void QueueList::OutOfBoundErr() const
 	std::cout << "Index out of bounds of the queue" << std::endl;
 }
 
+void QueueList::emptyMessage() const
+{
+	std::cout << "Queue is empty" << std::endl;
+}
+
 //public
 
 QueueList::QueueList()
@@ -17,6 +22,7 @@ QueueList::QueueList()
 
 QueueList::~QueueList()
 {
+	QueueList::clear();
 }
 
 const bool QueueList::isEmty() const { return m_front_ptr == nullptr; }
@@ -42,7 +48,7 @@ void QueueList::dequeue()
 {
 	if (this->isEmty())
 	{
-		
+		emptyMessage();
 		return;
 	}
 	if (m_front_ptr == m_back_ptr)
@@ -83,7 +89,7 @@ void QueueList::front() const
 {
 	if (this->isEmty())
 	{
-		std::cout << "Queue is empty" << std::endl;
+		emptyMessage();
 		return;
 	}
 
@@ -116,4 +122,18 @@ void QueueList::display()
 	}
 
 	std::cout << std::endl;
+}
+
+void QueueList::clear()
+{
+	ListNode* it = m_front_ptr;
+	while (it != nullptr)
+	{
+		ListNode* del_it = it;
+		it = it->link;
+		delete del_it;
+	}
+
+	m_back_ptr = nullptr;
+	m_front_ptr = nullptr;
 }
