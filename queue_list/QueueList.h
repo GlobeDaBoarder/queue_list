@@ -4,8 +4,8 @@
 class QueueList
 {
 private:
-	ListNode* front;
-	ListNode* back;
+	ListNode* m_front_ptr;
+	ListNode*m_back_ptr;
 public:
 	QueueList();
 	~QueueList();

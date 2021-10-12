@@ -1,7 +1,7 @@
 #pragma once
 struct ListNode
 {
-	int data;
-	ListNode* link;
+	int data = 0;
+	ListNode* link = nullptr;
 };
 
