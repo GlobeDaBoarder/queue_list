@@ -8,7 +8,7 @@ void QueueList::OutOfBoundErr() const
 	std::cout << "Index out of bounds of the queue" << std::endl;
 }
 
-void QueueList::emptyMessage() const
+void QueueList::EmptyErr() const
 {
 	std::cout << "Queue is empty" << std::endl;
 }
@@ -48,7 +48,7 @@ void QueueList::dequeue()
 {
 	if (this->isEmty())
 	{
-		emptyMessage();
+		EmptyErr();
 		return;
 	}
 	if (m_front_ptr == m_back_ptr)
@@ -61,7 +61,7 @@ void QueueList::dequeue()
 	delete del_node;
 }
 
-void QueueList::peek(int ind)
+void QueueList::peek(int ind) const
 {
 
 	if (ind < 1 || this->isEmty())
@@ -89,7 +89,7 @@ void QueueList::front() const
 {
 	if (this->isEmty())
 	{
-		emptyMessage();
+		EmptyErr();
 		return;
 	}
 
@@ -106,11 +106,11 @@ void QueueList::size() const
 		++size;
 		it = it->link;
 	}
+
+	std::cout << "sie of the queue is " << size << std::endl;
 }
 
-
-
-void QueueList::display()
+void QueueList::display() const
 {
 	ListNode* it = m_front_ptr;
 	while (it != nullptr)
@@ -138,6 +138,12 @@ void QueueList::clear()
 
 void QueueList::reverse()
 {
+	if (this->isEmty())
+	{
+		EmptyErr();
+		return;
+	}
+
 	ListNode* next = nullptr;
 	ListNode* previous = nullptr;
 	while (m_front_ptr != nullptr)
@@ -148,4 +154,22 @@ void QueueList::reverse()
 		m_front_ptr = next;
 	}
 	m_front_ptr = previous;
+
+	std::cout << "The queue has been reversed" << std::endl;
+}
+
+void PrintInstructions()
+{
+	std::cout << "Create a queue (maximim length is 10) using these commands:" << std::endl
+		<< "\tadd -- adds inputed element to the queue" << std::endl
+		<< "\trem -- removes first element in the queue" << std::endl
+		<< "\tpeek -- reval element with inputed index of the queue" << std::endl
+		<< "\tfront -- prints first element of the queue" << std::endl
+		<< "\tisEmpty -- prints whether queue is empty or not (TRUE/FALSE)" << std::endl
+		<< "\tdisplay -- prints all elements of th queue" << std::endl
+		<< "\tclear -- clears all elements of the queue" << std::endl
+		<< "\treverse -- reverts elements' order in the queue" << std::endl
+		<< "\tsize -- prints size of the queue" << std::endl
+		<< "\tq -- exit application" << std::endl
+		<< std::endl;
 }

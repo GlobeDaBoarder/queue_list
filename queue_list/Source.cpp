@@ -4,35 +4,34 @@
 int main()
 {
 	QueueList q;
-	q.enqueue(1);
-	q.enqueue(2);
-	q.enqueue(3);
+	std::string input;
+	int el = 0;
 
-	q.dequeue();
-	q.enqueue(4);
+	PrintInstructions();
 
-	q.peek(1);
-	q.peek(2);
-	q.peek(3);
-	q.peek(0);
-	q.peek(4);
-
-	q.front();
-
-	q.size();
-
-	q.display();
-
-	q.reverse();
-
-	q.display();
-
-	q.clear();
-
-	q.dequeue();
-
-	q.size();
-
-	std::cout << q.isEmty();
+	while (true)
+	{
+		std::cin >> input;
+		if (input == "add")
+		{
+			std::cin >> el;
+			q.enqueue(el);
+		}
+		else if (input == "peek")
+		{
+			std::cout << "enter index of element you want to show (numeration begins from 1):" << std::endl;
+			std::cin >> el;
+			q.peek(el);
+		}
+		else if (input == "rem") q.dequeue();
+		else if (input == "display") q.display();
+		else if (input == "front") q.front();
+		else if (input == "isEmpty") std::cout << std::boolalpha << q.isEmty() << std::endl;
+		else if (input == "clear") q.clear();
+		else if (input == "size") q.size();
+		else if (input == "reverse") q.reverse();
+		else if (input == "q") return 0;
+		else std::cout << "WRONG INPUT" << std::endl;
+	}
 
 }

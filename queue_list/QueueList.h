@@ -10,7 +10,7 @@ private:
 
 private:
 	void OutOfBoundErr() const;
-	void emptyMessage() const;
+	void EmptyErr() const;
 
 public:
 	QueueList();
@@ -18,11 +18,13 @@ public:
 	const bool isEmty() const;
 	void enqueue(int);
 	void dequeue();
-	void peek(int);
+	void peek(int) const;
 	void front() const;
 	void size() const;
-	void display();
+	void display()const;
 	void clear();
 	void reverse();
 };
+
+void PrintInstructions();
 
