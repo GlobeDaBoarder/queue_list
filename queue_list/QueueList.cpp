@@ -55,12 +55,10 @@ void QueueList::dequeue()
 	delete del_node;
 }
 
-
-
 void QueueList::peek(int ind)
 {
 
-	if (ind < 1)
+	if (ind < 1 || this->isEmty())
 	{
 		OutOfBoundErr();
 		return;
@@ -78,4 +76,16 @@ void QueueList::peek(int ind)
 	}
 
 	std::cout << "element with index #" << ind << " is " << it->data << std::endl;
+}
+
+
+void QueueList::front() const
+{
+	if (this->isEmty())
+	{
+		std::cout << "Queue is empty" << std::endl;
+		return;
+	}
+
+	std::cout << "First element of the queue is " << m_front_ptr->data << std::endl;
 }
