@@ -5,7 +5,7 @@
 
 void QueueList::OutOfBoundErr() const
 {
-	std::cout << "The queue is empty. Nothing to delete" << std::endl;
+	std::cout << "Index out of bounds of the queue" << std::endl;
 }
 
 //public
@@ -88,4 +88,18 @@ void QueueList::front() const
 	}
 
 	std::cout << "First element of the queue is " << m_front_ptr->data << std::endl;
+}
+
+
+void QueueList::size() const
+{
+	ListNode* it = m_front_ptr;
+	size_t size = 0;
+	while (it != nullptr)
+	{
+		++size;
+		it = it->link;
+	}
+
+	std::cout << "Size of the queue is " << size << std::endl;
 }
