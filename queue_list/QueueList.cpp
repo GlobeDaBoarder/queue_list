@@ -103,3 +103,17 @@ void QueueList::size() const
 
 	std::cout << "Size of the queue is " << size << std::endl;
 }
+
+
+
+void QueueList::display()
+{
+	ListNode* it = m_front_ptr;
+	while (it != nullptr)
+	{
+		std::cout << it->data << ' ';
+		it = it->link;
+	}
+
+	std::cout << std::endl;
+}

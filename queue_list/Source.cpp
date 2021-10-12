@@ -20,4 +20,7 @@ int main()
 	q.front();
 
 	q.size();
+
+	q.display();
+
 }
