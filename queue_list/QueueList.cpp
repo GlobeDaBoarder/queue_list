@@ -97,7 +97,7 @@ void QueueList::front() const
 }
 
 
-int QueueList::size() const
+void QueueList::size() const
 {
 	ListNode* it = m_front_ptr;
 	int size = 0;
@@ -106,8 +106,6 @@ int QueueList::size() const
 		++size;
 		it = it->link;
 	}
-
-	return size;
 }
 
 

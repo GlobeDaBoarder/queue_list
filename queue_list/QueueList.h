@@ -20,7 +20,7 @@ public:
 	void dequeue();
 	void peek(int);
 	void front() const;
-	int size() const;
+	void size() const;
 	void display();
 	void clear();
 	void reverse();

@@ -31,7 +31,7 @@ int main()
 
 	q.dequeue();
 
-	std::cout << q.size() << std::endl;;
+	q.size();
 
 	std::cout << q.isEmty();
 
