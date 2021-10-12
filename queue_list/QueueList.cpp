@@ -97,17 +97,17 @@ void QueueList::front() const
 }
 
 
-void QueueList::size() const
+int QueueList::size() const
 {
 	ListNode* it = m_front_ptr;
-	size_t size = 0;
+	int size = 0;
 	while (it != nullptr)
 	{
 		++size;
 		it = it->link;
 	}
 
-	std::cout << "Size of the queue is " << size << std::endl;
+	return size;
 }
 
 
@@ -136,4 +136,25 @@ void QueueList::clear()
 
 	m_back_ptr = nullptr;
 	m_front_ptr = nullptr;
+}
+
+void QueueList::reverse()
+{
+	int* copy = new int[this->size()];
+
+	ListNode* it = m_front_ptr;
+	for (int i = 0; i < this->size(); ++i)
+	{
+		copy[i] = it->data;
+		it = it->link;
+	}
+
+	it = m_front_ptr;
+	for (int i = this->size() - 1; i >= 0;  --i)
+	{
+		it->data = copy[i];
+		it = it->link;
+	}
+
+	std::cout << "queue reversed" << std::endl;
 }

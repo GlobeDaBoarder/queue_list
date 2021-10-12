@@ -23,11 +23,15 @@ int main()
 
 	q.display();
 
+	q.reverse();
+
+	q.display();
+
 	q.clear();
 
 	q.dequeue();
 
-	q.size();
+	std::cout << q.size() << std::endl;;
 
 	std::cout << q.isEmty();
 
