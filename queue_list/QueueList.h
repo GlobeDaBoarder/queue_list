@@ -10,7 +10,6 @@ public:
 	QueueList();
 	~QueueList();
 	const bool isEmty() const;
-	const bool isFull() const;
 	void enqueue(int);
 	void dequeue();
 	void peek(int);
