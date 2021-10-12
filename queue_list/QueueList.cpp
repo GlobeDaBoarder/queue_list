@@ -1,6 +1,15 @@
 #include "QueueList.h"
 #include <iostream>
 
+//private
+
+void QueueList::OutOfBoundErr() const
+{
+	std::cout << "The queue is empty. Nothing to delete" << std::endl;
+}
+
+//public
+
 QueueList::QueueList()
 	:m_front_ptr(nullptr), m_back_ptr(nullptr)
 {
@@ -33,7 +42,7 @@ void QueueList::dequeue()
 {
 	if (this->isEmty())
 	{
-		std::cout << "The queue is empty. Nothing to delete" << std::endl;
+		
 		return;
 	}
 	if (m_front_ptr == m_back_ptr)
@@ -53,7 +62,7 @@ void QueueList::peek(int ind)
 
 	if (ind < 1)
 	{
-		std::cout << "index is out of queue bounds" << std::endl;
+		OutOfBoundErr();
 		return;
 	}
 
@@ -63,7 +72,7 @@ void QueueList::peek(int ind)
 		it = it->link;
 		if (it == nullptr)
 		{
-			std::cout << "index is out of queue bounds" << std::endl;
+			OutOfBoundErr();
 			return;
 		}
 	}
