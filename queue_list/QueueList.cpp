@@ -140,21 +140,14 @@ void QueueList::clear()
 
 void QueueList::reverse()
 {
-	int* copy = new int[this->size()];
-
-	ListNode* it = m_front_ptr;
-	for (int i = 0; i < this->size(); ++i)
+	ListNode* next = nullptr;
+	ListNode* previous = nullptr;
+	while (m_front_ptr != nullptr)
 	{
-		copy[i] = it->data;
-		it = it->link;
+		next = m_front_ptr->link;
+		m_front_ptr->link = previous;
+		previous = m_front_ptr;
+		m_front_ptr = next;
 	}
-
-	it = m_front_ptr;
-	for (int i = this->size() - 1; i >= 0;  --i)
-	{
-		it->data = copy[i];
-		it = it->link;
-	}
-
-	std::cout << "queue reversed" << std::endl;
+	m_front_ptr = previous;
 }
