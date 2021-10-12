@@ -45,3 +45,28 @@ void QueueList::dequeue()
 	m_front_ptr = m_front_ptr->link;
 	delete del_node;
 }
+
+
+
+void QueueList::peek(int ind)
+{
+
+	if (ind < 1)
+	{
+		std::cout << "index is out of queue bounds" << std::endl;
+		return;
+	}
+
+	ListNode* it = m_front_ptr;
+	for (int i = 0; i < ind -1 ; ++i)
+	{
+		it = it->link;
+		if (it == nullptr)
+		{
+			std::cout << "index is out of queue bounds" << std::endl;
+			return;
+		}
+	}
+
+	std::cout << "element with index #" << ind << " is " << it->data << std::endl;
+}
